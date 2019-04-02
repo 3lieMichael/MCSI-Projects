@@ -1,0 +1,78 @@
+﻿@model IEnumerable<RHN_Website.ViewModel.Store_vm>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Store</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@*<div class="card-columns">
+    @foreach (var item in Model)
+    {
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">@item.Product.Name</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-4">
+                        <img src="data:image/jpeg;base64,@item.Product.Image" style="width:100%" />
+                    </div>
+                    <div class="col-8">
+                        <p class="card-text">Quatity in Store: @item.QuantityInStore</p>
+                        <p class="card-text">Quatity Sold: @item.QuantityInSold</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-muted text-right">
+                <div class="btn-group btn-group-sm" data-toggle="buttons">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-secondary" })
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-secondary" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-secondary" })
+                </div>
+            </div>
+        </div>
+    }
+</div>*@
+
+<table class="ui celled table">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>In Store</th>
+            <th>Sold</th>
+            <th>Needed</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                <h4 class="ui image header">
+                    <img src="data:image/jpeg;base64,@item.Product.Image" class="ui mini rounded image">
+                    <div class="content">
+                        @item.Product.Name
+                        <div class="sub header">
+                            @item.Product.Description
+                        </div>
+                    </div>
+                </h4>
+            </td>
+            <td>
+                @item.QuantityInStore In
+            </td>
+            <td>
+                @item.QuantityInSold Sold
+            </td>
+            <td>
+                @item.QuantityNeeded Needed
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

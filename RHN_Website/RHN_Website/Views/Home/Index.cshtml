@@ -1,0 +1,101 @@
+﻿@model RHN_Website.ViewModel.Home_vm
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div id="home-store-info">
+    <div class="row">
+        <div class="col-md-3 col-sm-6">
+            <div class="card text-white bg-success mb-3 text-center">
+                <div class="card-header">Current Sales</div>
+                <div class="card-body">
+                    <h1 class="card-title">@Model.TotalSalesCurrent R</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="card bg-light mb-3 text-center">
+                <div class="card-header">Current Profit</div>
+                <div class="card-body">
+                    <h1 class="card-title">@Model.TotalCurrentProfit R</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="card text-white bg-primary mb-3 text-center">
+                <div class="card-header">Expected Sales</div>
+                <div class="card-body">
+                    <h1 class="card-title">@Model.TotalSalesExpected R</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="card text-white bg-info mb-3 text-center">
+                <div class="card-header">Total Profit</div>
+                <div class="card-body">
+                    <h1 class="card-title">@Model.TotalProfit R</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="card text-white bg-warning mb-3 text-center">
+                <div class="card-header">Capital</div>
+                <div class="card-body">
+                    <h1 class="card-title">@Model.StockCapital R</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <canvas id="myChart"></canvas>
+    </div>
+</div>
+<script src="~/Scripts/Chart.min.js"></script>
+<script>
+    var labels = [];
+    var data = [];
+    var ctx = document.getElementById("myChart");
+
+    var sales = JSON.parse('@Html.Raw(Json.Encode(@Model.Sales))')
+
+    for (var i = 0; i < sales.length; i++) {
+        labels.push(sales[i].SaleDate);
+        data.push(sales[i].SalesAmount);
+    }
+
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Sales',
+                data: data,
+                backgroundColor: [
+                    'rgba(255, 255, 255, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255,99,132,1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>

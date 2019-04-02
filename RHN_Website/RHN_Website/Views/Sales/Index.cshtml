@@ -1,0 +1,42 @@
+﻿@model IEnumerable<RHN_Website.ViewModel.Sales_vm>
+
+@{
+    ViewBag.Title = "Sales";
+}
+
+<h2>Sales</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+<div class="card-columns">
+    @foreach (var item in Model)
+    {
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">@item.Product.Name</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-4">
+                        <img src="data:image/jpeg;base64,@item.Product.Image" style="width:100%" />
+                    </div>
+                    <div class="col-8">
+                        <h5 class="card-title">@item.Date.ToShortDateString()</h5>
+                        <p class="card-text">Quatity: @item.Quantity</p>
+                        <p class="card-text">Total SellingPrice: @item.TotalSellingPrice R</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-muted text-right">
+                <div class="btn-group btn-group-sm" data-toggle="buttons">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-secondary" })
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-secondary" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-secondary" })
+                </div>
+            </div>
+        </div>
+    }
+</div>
