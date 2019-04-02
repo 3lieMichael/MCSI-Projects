@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div id="container">
+    @Html.Partial("_Home")
+
+    @*@Html.Partial("_Product")*@
+    <div id="body-content">
+        @Html.Partial("_Services")
+
+        @Html.Partial("_AboutUs")
+
+        @Html.Partial("_Contact")
+
+        @Html.Partial("_Footer")
+    </div>
+</div>

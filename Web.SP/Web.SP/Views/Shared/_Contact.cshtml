@@ -1,0 +1,77 @@
+﻿<!-- BEGIN CONTACT -->
+<section id="contact" class="contact">
+    <div class="row">
+        <div class="col-md-12 mg-bt-80">
+            <div class="header-content">
+                <h2>Contact Us</h2>
+                <h3>Let us know if you have any query</h3>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-6">
+            <div class="address">
+                <h2>Get in touch</h2>
+                <p>Contact us by telephone or email, the details are prodived below, or you can visit us at our offices. Alternatively fill your details in the form and send us your message, we will respond in less that 24-Hous.</p>
+                <h2>IESD Office</h2>
+                <ul class="office">
+                    <li>
+                        <i class="fa fa-map-marker"></i> <strong>Address:</strong> 1008 JB Mafora, Rockland, Bloemfontein, 9323
+                    </li>
+                    <li><i class="fa fa-phone"></i> <strong>Phone:</strong> (+27) 73 416 3073; (+27) 65 818 7811; </li>
+                    <li>
+                        <i class="fa fa-envelope"></i> <strong>Email:</strong>
+                        <a href="mailto:sales@iesd.co.za; tech@iesd.co.za">
+                            sales@iesd.co.za; tech@iesd.co.za
+                        </a>
+                    </li>
+                </ul>
+                <h2>Banking Details</h2>
+                <ul class="office">
+                    <li><i class="far fa-credit-card"></i> <strong>Bank:</strong> First National Bank,</li>
+                    <li><i class="far fa-credit-card"></i> <strong>Acc Type:</strong> Business Account,</li>
+                    <li><i class="far fa-credit-card"></i> <strong>Acc Nr:</strong> 62421540172 </li>
+                    <li><i class="far fa-credit-card"></i> <strong>Branch Name:</strong> Client Resolution Centre</li>
+                    <li><i class="far fa-credit-card"></i> <strong>Branch Code:</strong> 260231</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-6">
+            <!--id="contact-form"-->
+            <form role="form" action="Home/Contact" method="POST">
+                <div class="form-group">
+                    <input name="Name" type="text" class="form-control" id="c_name" placeholder="Name">
+                </div>
+
+                <div class="form-group">
+                    <input name="Phone" type="text" class="form-control" id="c_phone" placeholder="Phone Number">
+                </div>
+
+                <div class="form-group">
+                    <input name="Email" type="email" class="form-control" id="c_email" placeholder="Email">
+                </div>
+
+                <div class="form-group">
+                    <textarea name="Message" class="form-control" id="c_message" rows="10" placeholder="Message"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <div class="radio">
+                        <label>
+                            <input name="Subject" type="radio" id="title1" value="Sales enquiries" checked="">
+                            Sales Enquiries
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input name="Subject" type="radio" id="title2" value="Technical enquiries">
+                            Technical Enquiries
+                        </label>
+                    </div>
+                </div>
+                <br />
+                <button type="submit" class="btn">Send Message</button>
+                <div class="ajax-response"></div>
+            </form>
+        </div>
+
+    </div>
+</section>
